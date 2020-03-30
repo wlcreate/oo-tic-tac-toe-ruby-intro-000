@@ -61,8 +61,8 @@ class TicTacToe
         end
   odp ? odp : false
   end
-  def full?
-    @board.all?{|slot| slot == "X" || slot == "O"}? true : false
+  def full?(board)
+    board.none?{|index| index == " "}
   end
   def draw?
     won? ? false : full? ? true : false
@@ -87,6 +87,5 @@ class TicTacToe
     elsif draw?
       puts "Cat's Game!"
     end
-
   end
 end
